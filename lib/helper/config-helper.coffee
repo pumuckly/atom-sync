@@ -64,6 +64,7 @@ module.exports = ConfigHelper =
       alwaysSyncAll: false
     option:
       deleteFiles: false
+      localRoot: false
       exclude: [
         '.sync-config.cson'
         '.git'
