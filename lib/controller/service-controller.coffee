@@ -27,12 +27,12 @@ module.exports = ServiceController =
     @config.initialise obj
 
   onSave: (obj) ->
-    config = @config.load obj
-    @onSync obj, 'up' if config?.behaviour?.uploadOnSave
+    config = @config.loadReal obj
+    @onSync config.filename, 'up' if config?.behaviour?.uploadOnSave
 
   onOpen: (obj) ->
-    config = @config.load obj
-    @onSync obj, 'down' if config?.behaviour?.syncDownOnOpen
+    config = @config.loadReal obj
+    @onSync config.filename, 'down' if config?.behaviour?.syncDownOnOpen
 
   onSync: (obj, direction) ->
     obj = path.normalize obj
