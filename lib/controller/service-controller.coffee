@@ -35,9 +35,8 @@ module.exports = ServiceController =
     @onSync config.filename, 'down' if config?.behaviour?.syncDownOnOpen
 
   onSync: (obj, direction) ->
-    obj = path.normalize obj
-
     try
+      obj = path.normalize obj
       config = @config.assert obj
     catch err
       @console.show()
