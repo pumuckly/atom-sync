@@ -30,6 +30,8 @@ module.exports = ConfigHelper =
           if config and (f.indexOf config?.option?.localRoot) isnt -1
             config.filename = fRealPath + f.substr config.option.localRoot.length
     config
+    if (config?)
+      config = false
 
   assert: (f) ->
     config = @load f
