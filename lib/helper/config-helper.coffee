@@ -29,9 +29,9 @@ module.exports = ConfigHelper =
           catch e then config = false
           if config and (f.indexOf config?.option?.localRoot) isnt -1
             config.filename = fRealPath + f.substr config.option.localRoot.length
-    config
-    if (config?)
+    if !config?
       config = false
+    config
 
   assert: (f) ->
     config = @load f
