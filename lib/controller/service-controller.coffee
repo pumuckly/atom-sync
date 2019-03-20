@@ -28,12 +28,12 @@ module.exports = ServiceController =
 
   onSave: (obj) ->
     config = @config.loadReal obj
-    if config
+    if config? and config isnt false and config?.filename? and config.filename isnt false
       @onSync config.filename, 'up' if config?.behaviour?.uploadOnSave
 
   onOpen: (obj) ->
     config = @config.loadReal obj
-    if config
+    if config? and config isnt false and config?.filename? and config.filename isnt false
       @onSync config.filename, 'down' if config?.behaviour?.syncDownOnOpen
 
   onSync: (obj, direction) ->
